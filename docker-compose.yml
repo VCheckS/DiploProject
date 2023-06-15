@@ -12,3 +12,34 @@ services:
       - MYSQL_DATABASE=app
       - MYSQL_USER=app
       - MYSQL_PASSWORD=pass
+
+  postgresdb:
+    image: postgres:latest
+    restart: always
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./your-sql-file.sql:/docker-entrypoint-initdb.d/your-sql-file.sql
+    environment:
+      - POSTGRES_USER=your_username
+      - POSTGRES_PASSWORD=your_password
+      - POSTGRES_DB=your_database
+
+  gate-simulator:
+    build: bankServ/Dockerfile
+    ports:
+      - 3000:3000
+    depends_on:
+      - mysqldb
+      - postgresdb
+    environment:
+      - DB_MYSQL_HOST=mysqldb
+      - DB_MYSQL_PORT=3306
+      - DB_MYSQL_USER=app
+      - DB_MYSQL_PASSWORD=pass
+      - DB_MYSQL_NAME=app
+      - DB_POSTGRES_HOST=postgresdb
+      - DB_POSTGRES_PORT=5432
+      - DB_POSTGRES_USER=your_username
+      - DB_POSTGRES_PASSWORD=your_password
+      - DB_POSTGRES_NAME=your_database
