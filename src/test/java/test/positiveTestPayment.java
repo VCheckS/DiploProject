@@ -2,15 +2,12 @@ package test;
 
 
 import com.codeborne.selenide.Configuration;
-
 import data.DataHelper;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import page.DashBoard;
 
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.open;
 
 
 public class positiveTestPayment {
