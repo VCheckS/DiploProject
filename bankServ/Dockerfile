@@ -1,6 +1,6 @@
     FROM node:14
 
-    WORKDIR /bankServ/app
+    WORKDIR /bankServ
 
     COPY data.json .
     COPY package.json .

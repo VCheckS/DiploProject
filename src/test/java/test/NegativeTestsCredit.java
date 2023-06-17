@@ -1,5 +1,6 @@
 package test;
 
+
 import com.codeborne.selenide.Configuration;
 import data.DataHelper;
 import data.StringGenerator;
@@ -9,8 +10,7 @@ import page.DashBoard;
 
 import static com.codeborne.selenide.Selenide.open;
 
-public class NegotiveTestsPayment {
-
+public class NegativeTestsCredit {
     @BeforeEach
     void setUp() {
 
@@ -19,10 +19,11 @@ public class NegotiveTestsPayment {
         Configuration.timeout = 15000;
     }
 
+
     @Test
-    public void EmptyCardFieldPaymentService() {
+    public void EmptyCardFieldCreditService() {
         DashBoard dashboard = new DashBoard();
-        dashboard.clickButtonPayment();
+        dashboard.clickCreditButton();
 
         var month = DataHelper.generateRandomMonth();
         dashboard.getMonth().setValue(month);
@@ -35,7 +36,7 @@ public class NegotiveTestsPayment {
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
-//        SelenideElement button = $x("//*[contains(text(), 'Купить')]");
+//        SelenideElement button = $x("//*[contains(text(), 'Купить в кредит')]");
 //        button.click();
 //        // String month = String.valueOf(10);
 //        var month = DataHelper.generateRandomMonth();
@@ -54,7 +55,7 @@ public class NegotiveTestsPayment {
     @Test
     public void EmptyNameFieldPaymentService() {
         DashBoard dashboard = new DashBoard();
-        dashboard.clickButtonPayment();
+        dashboard.clickCreditButton();
         var cardNumber = DataHelper.getApprovedCardInfo();
         dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
         var month = DataHelper.generateRandomMonth();
@@ -67,9 +68,9 @@ public class NegotiveTestsPayment {
         dashboard.clickButtonCont();
         dashboard.findMustBeFilledMessage("Поле обязательно для заполнения");
     }
-//        SelenideElement button = $x("//*[contains(text(), 'Купить')]");
+//        SelenideElement button = $x("//*[contains(text(), 'Купить в кредит')]");
 //        button.click();
-//        // String month = String.valueOf(10);
+//
 //        var month = DataHelper.generateRandomMonth();
 //        $$(".input__control").get(1).setValue(String.valueOf(month));
 //        var year = DataHelper.getLastTwoDigitsOfYear() + 1;
@@ -83,9 +84,9 @@ public class NegotiveTestsPayment {
 //    }
 
     @Test
-    public void EmptyMonthFieldPaymentService() {
+    public void EmptyMonthFieldCreditService() {
         DashBoard dashboard = new DashBoard();
-        dashboard.clickButtonPayment();
+        dashboard.clickCreditButton();
         var cardNumber = DataHelper.getApprovedCardInfo();
         dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
         var name = DataHelper.generateRandomName();
@@ -98,7 +99,7 @@ public class NegotiveTestsPayment {
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
-//        SelenideElement button = $x("//*[contains(text(), 'Купить')]");
+//        SelenideElement button = $x("//*[contains(text(), 'Купить в кредит')]");
 //        button.click();
 //        var year = DataHelper.getLastTwoDigitsOfYear() + 1;
 //        $$(".input__control").get(2).setValue(String.valueOf(year));
@@ -114,9 +115,9 @@ public class NegotiveTestsPayment {
 //    }
 
     @Test
-    public void EmptyYearFieldPaymentService() {
+    public void EmptyYearFieldCreditService() {
         DashBoard dashboard = new DashBoard();
-        dashboard.clickButtonPayment();
+        dashboard.clickCreditButton();
         var cardNumber = DataHelper.getApprovedCardInfo();
         dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
         var name = DataHelper.generateRandomName();
@@ -129,7 +130,7 @@ public class NegotiveTestsPayment {
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
-//        SelenideElement button = $x("//*[contains(text(), 'Купить')]");
+//        SelenideElement button = $x("//*[contains(text(), 'Купить в кредит')]");
 //        button.click();
 //        var month = DataHelper.generateRandomMonth();
 //        $$(".input__control").get(1).setValue(String.valueOf(month));
@@ -145,9 +146,9 @@ public class NegotiveTestsPayment {
 //    }
 
     @Test
-    public void EmptyCvcFieldPaymentService() {
+    public void EmptyCvcFieldCreditService() {
         DashBoard dashboard = new DashBoard();
-        dashboard.clickButtonPayment();
+        dashboard.clickCreditButton();
         var cardNumber = DataHelper.getApprovedCardInfo();
         dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
         var name = DataHelper.generateRandomName();
@@ -160,7 +161,7 @@ public class NegotiveTestsPayment {
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
-//        SelenideElement button = $x("//*[contains(text(), 'Купить')]");
+//        SelenideElement button = $x("//*[contains(text(), 'Купить в кредит')]");
 //        button.click();
 //        var month = DataHelper.generateRandomMonth();
 //        $$(".input__control").get(1).setValue(String.valueOf(month));
@@ -172,13 +173,13 @@ public class NegotiveTestsPayment {
 //        $$(".input__control").get(3).setValue(String.valueOf(name));
 //        $$("button").find(exactText("Продолжить")).click();
 //        $(byText("Неверный формат")).shouldBe(Condition.visible, Duration.ofSeconds(15));
-//
+
 //    }
 
     @Test
-    public void InvalidCardFieldPaymentService() {
+    public void InvalidCardFieldCreditService() {
         DashBoard dashboard = new DashBoard();
-        dashboard.clickButtonPayment();
+        dashboard.clickCreditButton();
         var cardNumber = StringGenerator.stringCard();
         dashboard.getCardInfo().setValue(cardNumber);
         var month = DataHelper.generateRandomMonth();
@@ -192,7 +193,7 @@ public class NegotiveTestsPayment {
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
-//        SelenideElement button = $x("//*[contains(text(), 'Купить')]");
+//        SelenideElement button = $x("//*[contains(text(), 'Купить в кредит')]");
 //        button.click();
 //        var month = DataHelper.generateRandomMonth();
 //        $$(".input__control").get(1).setValue(String.valueOf(month));
@@ -209,9 +210,9 @@ public class NegotiveTestsPayment {
 //    }
 
     @Test
-    public void InvalidMonthFieldPaymentService1() {
+    public void InvalidMonthFieldCreditService1() {
         DashBoard dashboard = new DashBoard();
-        dashboard.clickButtonPayment();
+        dashboard.clickCreditButton();
         var cardNumber = DataHelper.getApprovedCardInfo();
         dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
         dashboard.getMonth().setValue("Q, q");
@@ -224,7 +225,7 @@ public class NegotiveTestsPayment {
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
-//        SelenideElement button = $x("//*[contains(text(), 'Купить')]");
+//        SelenideElement button = $x("//*[contains(text(), 'Купить в кредит')]");
 //        button.click();
 //        $$(".input__control").get(1).setValue("Q, q");
 //        var year = DataHelper.getLastTwoDigitsOfYear() + 1;
@@ -240,9 +241,9 @@ public class NegotiveTestsPayment {
 //    }
 
     @Test
-    public void InvalidMonthFieldPaymentService2() {
+    public void InvalidMonthFieldCreditService2() {
         DashBoard dashboard = new DashBoard();
-        dashboard.clickButtonPayment();
+        dashboard.clickCreditButton();
         var cardNumber = DataHelper.getApprovedCardInfo();
         dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
         dashboard.getMonth().setValue("!, @");
@@ -255,7 +256,7 @@ public class NegotiveTestsPayment {
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
-//        SelenideElement button = $x("//*[contains(text(), 'Купить')]");
+//        SelenideElement button = $x("//*[contains(text(), 'Купить в кредит')]");
 //        button.click();
 //        $$(".input__control").get(1).setValue("!, @");
 //        var year = DataHelper.getLastTwoDigitsOfYear() + 1;
@@ -271,9 +272,9 @@ public class NegotiveTestsPayment {
 //    }
 
     @Test
-    public void InvalidMonthFieldPaymentService3() {
+    public void InvalidMonthFieldCreditService3() {
         DashBoard dashboard = new DashBoard();
-        dashboard.clickButtonPayment();
+        dashboard.clickCreditButton();
         var cardNumber = DataHelper.getApprovedCardInfo();
         dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
         dashboard.getMonth().setValue("й, `");
@@ -286,7 +287,7 @@ public class NegotiveTestsPayment {
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
-//        SelenideElement button = $x("//*[contains(text(), 'Купить')]");
+//        SelenideElement button = $x("//*[contains(text(), 'Купить в кредит')]");
 //        button.click();
 //        $$(".input__control").get(1).setValue("й, `");
 //        var year = DataHelper.getLastTwoDigitsOfYear() + 1;
@@ -302,9 +303,9 @@ public class NegotiveTestsPayment {
 //    }
 
     @Test
-    public void InvalidYearFieldPaymentService1() {
+    public void InvalidYearFieldCreditService1() {
         DashBoard dashboard = new DashBoard();
-        dashboard.clickButtonPayment();
+        dashboard.clickCreditButton();
         var cardNumber = DataHelper.getApprovedCardInfo();
         dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
         var month = DataHelper.generateRandomMonth();
@@ -317,7 +318,7 @@ public class NegotiveTestsPayment {
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
-//        SelenideElement button = $x("//*[contains(text(), 'Купить')]");
+//        SelenideElement button = $x("//*[contains(text(), 'Купить в кредит')]");
 //        button.click();
 //        var month = DataHelper.generateRandomMonth();
 //        $$(".input__control").get(1).setValue(String.valueOf(month));
@@ -334,9 +335,9 @@ public class NegotiveTestsPayment {
 //    }
 
     @Test
-    public void InvalidYearFieldPaymentService2() {
+    public void InvalidYearFieldCreditService2() {
         DashBoard dashboard = new DashBoard();
-        dashboard.clickButtonPayment();
+        dashboard.clickCreditButton();
         var cardNumber = DataHelper.getApprovedCardInfo();
         dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
         var month = DataHelper.generateRandomMonth();
@@ -349,7 +350,7 @@ public class NegotiveTestsPayment {
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
-//        SelenideElement button = $x("//*[contains(text(), 'Купить')]");
+//        SelenideElement button = $x("//*[contains(text(), 'Купить в кредит')]");
 //        button.click();
 //        var month = DataHelper.generateRandomMonth();
 //        $$(".input__control").get(1).setValue(String.valueOf(month));
@@ -366,9 +367,9 @@ public class NegotiveTestsPayment {
 //    }
 
     @Test
-    public void InvalidYearFieldPaymentService3() {
+    public void InvalidYearFieldCreditService3() {
         DashBoard dashboard = new DashBoard();
-        dashboard.clickButtonPayment();
+        dashboard.clickCreditButton();
         var cardNumber = DataHelper.getApprovedCardInfo();
         dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
         var month = DataHelper.generateRandomMonth();
@@ -381,7 +382,7 @@ public class NegotiveTestsPayment {
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
-//        SelenideElement button = $x("//*[contains(text(), 'Купить')]");
+//        SelenideElement button = $x("//*[contains(text(), 'Купить в кредит')]");
 //        button.click();
 //        var month = DataHelper.generateRandomMonth();
 //        $$(".input__control").get(1).setValue(String.valueOf(month));
@@ -398,9 +399,9 @@ public class NegotiveTestsPayment {
 //    }
 
     @Test
-    public void InvalidNameFieldPaymentService() {
+    public void InvalidNameFieldCreditService1() {
         DashBoard dashboard = new DashBoard();
-        dashboard.clickButtonPayment();
+        dashboard.clickCreditButton();
         var cardNumber = DataHelper.getApprovedCardInfo();
         dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
         var month = DataHelper.generateRandomMonth();
@@ -414,7 +415,7 @@ public class NegotiveTestsPayment {
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
-//        SelenideElement button = $x("//*[contains(text(), 'Купить')]");
+//        SelenideElement button = $x("//*[contains(text(), 'Купить в кредит')]");
 //        button.click();
 //        var month = DataHelper.generateRandomMonth();
 //        $$(".input__control").get(1).setValue(String.valueOf(month));
@@ -432,9 +433,9 @@ public class NegotiveTestsPayment {
 //    }
 
     @Test
-    public void InvalidCvcFieldPaymentService() {
+    public void InvalidCvcFieldCreditService() {
         DashBoard dashboard = new DashBoard();
-        dashboard.clickButtonPayment();
+        dashboard.clickCreditButton();
         var cardNumber = DataHelper.getApprovedCardInfo();
         dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
         var month = DataHelper.generateRandomMonth();
@@ -447,7 +448,7 @@ public class NegotiveTestsPayment {
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
-//        SelenideElement button = $x("//*[contains(text(), 'Купить')]");
+//        SelenideElement button = $x("//*[contains(text(), 'Купить в кредит')]");
 //        button.click();
 //        var month = DataHelper.generateRandomMonth();
 //        $$(".input__control").get(1).setValue(String.valueOf(month));
@@ -459,16 +460,15 @@ public class NegotiveTestsPayment {
 //        $$(".input__control").get(3).setValue(String.valueOf(name));
 //        var cvc = DataHelper.generateCvcCode();
 //        $$(".input__control").get(4).setValue("Q, !, @");
-//
+//        ;
 //        $$("button").find(exactText("Продолжить")).click();
 //        $(byText("Неверный формат")).shouldBe(Condition.visible, Duration.ofSeconds(15));
 //    }
 
-
     @Test
-    public void ScriptProtectionCardFieldPaymentServ() {
+    public void ScriptProtectionCardFieldCreditServ() {
         DashBoard dashboard = new DashBoard();
-        dashboard.clickButtonPayment();
+        dashboard.clickCreditButton();
         dashboard.getCardInfo().setValue("<script> alert('Hello!');</script>");
         var month = DataHelper.generateRandomMonth();
         dashboard.getMonth().setValue(month);
@@ -481,8 +481,7 @@ public class NegotiveTestsPayment {
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
-
-    //        SelenideElement button = $x("//*[contains(text(), 'Купить')]");
+//        SelenideElement button = $x("//*[contains(text(), 'Купить в кредит')]");
 //        button.click();
 //        var month = DataHelper.generateRandomMonth();
 //        $$(".input__control").get(1).setValue(String.valueOf(month));
@@ -497,10 +496,11 @@ public class NegotiveTestsPayment {
 //        $$("button").find(exactText("Продолжить")).click();
 //        $(byText("Неверный формат")).shouldBe(Condition.visible, Duration.ofSeconds(15));
 //    }
+
     @Test
-    public void textNameFieldPaymentServ() {
+    public void textNameFieldCreditServ() {
         DashBoard dashboard = new DashBoard();
-        dashboard.clickButtonPayment();
+        dashboard.clickCreditButton();
         var cardNumber = DataHelper.getApprovedCardInfo();
         dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
         var month = DataHelper.generateRandomMonth();
@@ -514,12 +514,11 @@ public class NegotiveTestsPayment {
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Превышена максимальная длина Имени");
     }
-
-    //        SelenideElement button = $x("//*[contains(text(), 'Купить')]");
+//        SelenideElement button = $x("//*[contains(text(), 'Купить в кредит')]");
 //        button.click();
 //        var month = DataHelper.generateRandomMonth();
 //        $$(".input__control").get(1).setValue(String.valueOf(month));
-//        var year = DataHelper.getLastTwoDigitsOfYear()+1;
+//        var year = DataHelper.getLastTwoDigitsOfYear() + 1;
 //        $$(".input__control").get(2).setValue(String.valueOf(year));
 //        var cardNumber = DataHelper.getApprovedCardInfo();
 //        $$(".input__control").get(0).setValue(String.valueOf(cardNumber));
@@ -530,10 +529,11 @@ public class NegotiveTestsPayment {
 //        $$("button").find(exactText("Продолжить")).click();
 //        $(byText("Превышена максимальная длина Имени")).shouldBe(Condition.visible, Duration.ofSeconds(15));
 //    }
+
     @Test
-    public void limitCheckMonthFieldPaymentServ1() {
+    public void limitCheckMonthFieldCreditServ1() {
         DashBoard dashboard = new DashBoard();
-        dashboard.clickButtonPayment();
+        dashboard.clickCreditButton();
         var cardNumber = DataHelper.getApprovedCardInfo();
         dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
         dashboard.getMonth().setValue("0','0");
@@ -546,12 +546,11 @@ public class NegotiveTestsPayment {
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
-
-    //        SelenideElement button = $x("//*[contains(text(), 'Купить')]");
+//        SelenideElement button = $x("//*[contains(text(), 'Купить в кредит')]");
 //        button.click();
 //
 //        $$(".input__control").get(1).setValue("0','0");
-//        var year = DataHelper.getLastTwoDigitsOfYear()+1;
+//        var year = DataHelper.getLastTwoDigitsOfYear() + 1;
 //        $$(".input__control").get(2).setValue(String.valueOf(year));
 //        var cardNumber = DataHelper.getApprovedCardInfo();
 //        $$(".input__control").get(0).setValue(String.valueOf(cardNumber));
@@ -562,10 +561,11 @@ public class NegotiveTestsPayment {
 //        $$("button").find(exactText("Продолжить")).click();
 //        $(byText("Неверный формат")).shouldBe(Condition.visible, Duration.ofSeconds(15));
 //    }
+
     @Test
-    public void limitCheckMonthFieldPaymentServ2() {
+    public void limitCheckMonthFieldCreditServ2() {
         DashBoard dashboard = new DashBoard();
-        dashboard.clickButtonPayment();
+        dashboard.clickCreditButton();
         var cardNumber = DataHelper.getApprovedCardInfo();
         dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
         dashboard.getMonth().setValue("1','3");
@@ -578,12 +578,11 @@ public class NegotiveTestsPayment {
         dashboard.clickButtonCont();
         dashboard.findInvalidCardExpirationDate("Неверно указан срок действия карты");
     }
-
-    //        SelenideElement button = $x("//*[contains(text(), 'Купить')]");
+//        SelenideElement button = $x("//*[contains(text(), 'Купить в кредит')]");
 //        button.click();
 //
 //        $$(".input__control").get(1).setValue("1','3");
-//        var year = DataHelper.getLastTwoDigitsOfYear()+1;
+//        var year = DataHelper.getLastTwoDigitsOfYear() + 1;
 //        $$(".input__control").get(2).setValue(String.valueOf(year));
 //        var cardNumber = DataHelper.getApprovedCardInfo();
 //        $$(".input__control").get(0).setValue(String.valueOf(cardNumber));
@@ -592,12 +591,13 @@ public class NegotiveTestsPayment {
 //        var cvc = DataHelper.generateCvcCode();
 //        $$(".input__control").get(4).setValue(String.valueOf(cvc));
 //        $$("button").find(exactText("Продолжить")).click();
-//        $(byText("ННеверно указан срок действия карты")).shouldBe(Condition.visible, Duration.ofSeconds(15));
+//        $(byText("Неверно указан срок действия карты")).shouldBe(Condition.visible, Duration.ofSeconds(15));
 //    }
+
     @Test
-    public void limitCheckYearFieldPaymentServ1() {
+    public void limitCheckYearFieldCreditServ1() {
         DashBoard dashboard = new DashBoard();
-        dashboard.clickButtonPayment();
+        dashboard.clickCreditButton();
         var cardNumber = DataHelper.getApprovedCardInfo();
         dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
         var month = DataHelper.currentMonth();
@@ -611,12 +611,11 @@ public class NegotiveTestsPayment {
         dashboard.clickButtonCont();
         dashboard.findSuccessMessage("Успешно");
     }
-
-    //        SelenideElement button = $x("//*[contains(text(), 'Купить')]");
+//        SelenideElement button = $x("//*[contains(text(), 'Купить в кредит')]");
 //        button.click();
 //        var month = DataHelper.generateRandomMonth();
 //        $$(".input__control").get(1).setValue(String.valueOf(month));
-//        var year = DataHelper.getLastTwoDigitsOfYear()+1;
+//        var year = DataHelper.getLastTwoDigitsOfYear();
 //        $$(".input__control").get(2).setValue(String.valueOf(year));
 //        var cardNumber = DataHelper.getApprovedCardInfo();
 //        $$(".input__control").get(0).setValue(String.valueOf(cardNumber));
@@ -627,10 +626,11 @@ public class NegotiveTestsPayment {
 //        $$("button").find(exactText("Продолжить")).click();
 //        $(byText("Успешно")).shouldBe(Condition.visible, Duration.ofSeconds(15));
 //    }
+
     @Test
-    public void limitCheckYearFieldPaymentServ2() {
+    public void limitCheckYearFieldCreditServ2() {
         DashBoard dashboard = new DashBoard();
-        dashboard.clickButtonPayment();
+        dashboard.clickCreditButton();
         var cardNumber = DataHelper.getApprovedCardInfo();
         dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
         var month = DataHelper.currentMonth();
@@ -645,11 +645,11 @@ public class NegotiveTestsPayment {
         dashboard.findInvalidCardExpirationDate("Неверно указан срок действия карты");
     }
 }
-//        SelenideElement button = $x("//*[contains(text(), 'Купить')]");
+//        SelenideElement button = $x("//*[contains(text(), 'Купить в кредит')]");
 //        button.click();
 //        var month = DataHelper.generateRandomMonth();
 //        $$(".input__control").get(1).setValue(String.valueOf(month));
-//        var year = DataHelper.getLastTwoDigitsOfYear()+6;
+//        var year = DataHelper.getLastTwoDigitsOfYear() + 6;
 //        $$(".input__control").get(2).setValue(String.valueOf(year));
 //        var cardNumber = DataHelper.getApprovedCardInfo();
 //        $$(".input__control").get(0).setValue(String.valueOf(cardNumber));
@@ -660,3 +660,5 @@ public class NegotiveTestsPayment {
 //        $$("button").find(exactText("Продолжить")).click();
 //        $(byText("Успешно")).shouldBe(Condition.visible, Duration.ofSeconds(15));
 //    }
+
+
