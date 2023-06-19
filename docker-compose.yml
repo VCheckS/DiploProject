@@ -6,7 +6,7 @@ services:
     ports:
       - '3306:3306'
     volumes:
-      - ./schema:/docker-entrypoint-initdb.d
+      - ./data:/var/lib/data/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=yes
       - MYSQL_DATABASE=app
@@ -19,12 +19,12 @@ services:
     ports:
       - '5432:5432'
     volumes:
-      - ./your-sql-file.sql:/docker-entrypoint-initdb.d/your-sql-file.sql
+      - ./data:/var/lib/data/postgresql
     environment:
-      - MYSQL_ROOT_PASSWORD=yes
-      - MYSQL_DATABASE=app
-      - MYSQL_USER=app
-      - MYSQL_PASSWORD=pass
+      - POSTGRES_ROOT_PASSWORD=yes
+      - POSTGRES_DATABASE=app
+      - POSTGRES_USER=app
+      - POSTGRES_PASSWORD=pass
 
   gate-simulator:
     build:
@@ -43,6 +43,6 @@ services:
       - DB_MYSQL_NAME=app
       - DB_POSTGRES_HOST=postgresdb
       - DB_POSTGRES_PORT=5432
-      - DB_POSTGRES_USER=your_username
-      - DB_POSTGRES_PASSWORD=your_password
-      - DB_POSTGRES_NAME=your_database
+      - DB_POSTGRES_USER=app
+      - DB_POSTGRES_PASSWORD=pass
+      - DB_POSTGRES_NAME=app

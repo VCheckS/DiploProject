@@ -1,13 +1,13 @@
-    FROM node:14
+FROM node:14
 
-    WORKDIR /bankServ
+WORKDIR /bankServ
 
-    COPY data.json .
-    COPY package.json .
-    COPY package-lock.json .
+COPY package.json .
+COPY package-lock.json .
+COPY data.json .
 
-    RUN npm install
+RUN npm install
 
-    COPY . .
+COPY . .
 
-    CMD ["npm", "start"]
+CMD ["npm", "start"]
