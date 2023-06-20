@@ -2,11 +2,11 @@ version: '3.7'
 services:
   mysqldb:
     image: mysql:latest
-    restart: always
+    restart: no
     ports:
       - '3306:3306'
     volumes:
-      - ./data:/var/lib/data/mysql
+      - ./data:/var/lib/datasql/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=yes
       - MYSQL_DATABASE=app
@@ -15,11 +15,11 @@ services:
 
   postgresdb:
     image: postgres:latest
-    restart: always
+    restart: no
     ports:
       - '5432:5432'
     volumes:
-      - ./data:/var/lib/data/postgresql
+      - ./data:/var/lib/datapost/postgresql
     environment:
       - POSTGRES_ROOT_PASSWORD=yes
       - POSTGRES_DATABASE=app
