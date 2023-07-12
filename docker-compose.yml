@@ -5,8 +5,6 @@ services:
     restart: no
     ports:
       - '3306:3306'
-    volumes:
-      - ./data:/var/lib/datasql/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=yes
       - MYSQL_DATABASE=app
@@ -18,31 +16,37 @@ services:
     restart: no
     ports:
       - '5432:5432'
-    volumes:
-      - ./data:/var/lib/datapost/postgresql
     environment:
       - POSTGRES_ROOT_PASSWORD=yes
       - POSTGRES_DATABASE=app
       - POSTGRES_USER=app
       - POSTGRES_PASSWORD=pass
 
-  gate-simulator:
+  node-app:
     build:
       context: ./bankServ
       dockerfile: Dockerfile
+    image: node-app:1.0
     ports:
-      - 9999:9999
-    depends_on:
-      - mysqldb
-      - postgresdb
-    environment:
-      - DB_MYSQL_HOST=mysqldb
-      - DB_MYSQL_PORT=3306
-      - DB_MYSQL_USER=app
-      - DB_MYSQL_PASSWORD=pass
-      - DB_MYSQL_NAME=app
-      - DB_POSTGRES_HOST=postgresdb
-      - DB_POSTGRES_PORT=5432
-      - DB_POSTGRES_USER=app
-      - DB_POSTGRES_PASSWORD=pass
-      - DB_POSTGRES_NAME=app
+      - '9999:9999'
+
+#  gate-simulator:
+#    build:
+#      context: ./bankServ
+#      dockerfile: Dockerfile
+#    ports:
+#      - 9999:9999
+#    depends_on:
+#      - mysqldb
+#      - postgresdb
+#    environment:
+#      - DB_MYSQL_HOST=mysqldb
+#      - DB_MYSQL_PORT=3306
+#      - DB_MYSQL_USER=app
+#      - DB_MYSQL_PASSWORD=pass
+#      - DB_MYSQL_NAME=app
+#      - DB_POSTGRES_HOST=postgresdb
+#      - DB_POSTGRES_PORT=5432
+#      - DB_POSTGRES_USER=app
+#      - DB_POSTGRES_PASSWORD=pass
+#      - DB_POSTGRES_NAME=app
